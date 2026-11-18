@@ -1,0 +1,102 @@
+<title>Конская сила</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;700&display=swap">
+<style>
+  /* Layout: one centered hero with a contact card; columns of dumbbells, barbells and protein fixed to both page edges. */
+  :root {
+    --bg: #edf0f3;
+    --bg-glow: #d9e0e8;
+    --ink: #15202b;
+    --muted: #52606d;
+    --line: #c6cfd9;
+    --card: #f8fafb;
+    --accent: #9c3d17;
+    --accent-ink: #ffffff;
+    --soft: #e6d9d2;
+    --iron: #3a4654;
+    --iron-2: #6b7886;
+    --steel: #a3aebb;
+    --tub: #2f6f9f;
+    --tub-label: #f0b94a;
+    --tub-ink: #1b1b1b;
+    --font-display: "Oswald", "Arial Narrow", Impact, sans-serif;
+    --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12161b;
+      --bg-glow: #1f2a36;
+      --ink: #eef2f6;
+      --muted: #a2afbc;
+      --line: #2e3a47;
+      --card: #1a2028;
+      --accent: #f08a4b;
+      --accent-ink: #1a0e06;
+      --soft: #3a2a20;
+      --iron: #8793a1;
+      --iron-2: #b5bfca;
+      --steel: #5d6977;
+      --tub: #3e86bd;
+      --tub-label: #f0b94a;
+      --tub-ink: #1b1b1b;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12161b;
+    --bg-glow: #1f2a36;
+    --ink: #eef2f6;
+    --muted: #a2afbc;
+    --line: #2e3a47;
+    --card: #1a2028;
+    --accent: #f08a4b;
+    --accent-ink: #1a0e06;
+    --soft: #3a2a20;
+    --iron: #8793a1;
+    --iron-2: #b5bfca;
+    --steel: #5d6977;
+    --tub: #3e86bd;
+    --tub-label: #f0b94a;
+    --tub-ink: #1b1b1b;
+    color-scheme: dark;
+  }
+
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: radial-gradient(110% 70% at 50% 0%, var(--bg-glow), var(--bg) 65%) fixed, var(--bg);
+    color: var(--ink);
+    font: 400 16px/1.55 var(--font-body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 0;
+    overflow-x: hidden;
+  }
+
+  /* Side columns */
+  .side {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: clamp(70px, 16vw, 240px);
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .side.left { left: 0; }
+  .side.right { right: 0; }
+  .deco {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--s);
+    transform: translate(-50%, -50%) rotate(var(--r));
+    animation: bob 6s ease-in-out var(--d) infinite alternate;
+    filter: drop-shadow(0 6px 8px rgba(0, 0, 0, .22));
+  }
+  .deco svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .deco.dumb svg { aspect-ratio: 200 / 80; }
+  .deco.bar svg { aspect-ratio: 260 / 100; }
+  .deco.tub svg { aspect-ratio: 100 / 130; }
+  .deco.shk svg { aspect-ratio: 70 / 130; }
+  @keyframes bob {
